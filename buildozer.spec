@@ -8,10 +8,13 @@ version = 1.0.0
 requirements = python3,kivy==2.3.0,pyjnius,requests,urllib3,certifi,yt-dlp
 orientation = portrait
 
-# Permisos nativos del sistema Android
+# Pin python-for-android to its Python 3.11 toolchain for Kivy 2.3.0 compatibility.
+p4a.branch = v2024.01.21
+
+# Android runtime permissions
 android.permissions = INTERNET,ACCESS_NETWORK_STATE,WAKE_LOCK,FOREGROUND_SERVICE,FOREGROUND_SERVICE_MEDIA_PLAYBACK,POST_NOTIFICATIONS
 
-# Declaración obligatoria del Foreground Service de música en segundo plano
+# Foreground media playback service (required on Android 14+)
 services = MusicService:service.py:foreground:foregroundServiceType=mediaPlayback
 
 android.api = 34
